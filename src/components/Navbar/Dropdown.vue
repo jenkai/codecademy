@@ -76,7 +76,7 @@ export default {
   background-color: white;
   border-radius: 2px;
   border-width: 1px;
-  border-color: black;
+  border-color: #10162f;
   border-style: solid;
   margin-top: 4px;
 }

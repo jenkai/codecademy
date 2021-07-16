@@ -1,5 +1,5 @@
 <template>
-  <nav>
+  <nav :class="{ isScroll: isScroll }">
     <div class="nav-container">
       <div class="nav-left">
         <div class="logo">
@@ -67,11 +67,28 @@ import Dropdown from "./Dropdown.vue";
 
 export default {
   name: "Navbar",
+  created() {
+    window.addEventListener("scroll", this.handleScroll);
+  },
+  unmounted() {
+    window.removeEventListener("scroll", this.handleScroll);
+  },
+  methods: {
+    handleScroll(event) {
+      if (event.path[1].window.scrollY >= 1) {
+        this.isScroll = true;
+      } else {
+        this.isScroll = false;
+      }
+      console.log(this.isScroll);
+    },
+  },
   data() {
     return {
       resource: ["Cheatsheets", "Projects", "Articals", "Blog"],
       community: ["Fourms", "Chat", "Chapters", "Events"],
       proPricing: ["For Individuals", "For Students"],
+      isScroll: false,
     };
   },
   components: {
@@ -82,11 +99,21 @@ export default {
 
 <style scoped>
 nav {
+  top: 0;
   background-color: #fff0e6;
-
+  position: sticky;
   height: 5rem;
   padding: 0.75rem 0;
   width: 100%;
+  z-index: 10;
+  border-bottom: 1px solid #fff0e6;
+  transition: all 0.4s;
+}
+
+nav.isScroll {
+  background-color: white;
+
+  border-bottom: 1px solid black;
 }
 
 .nav-container {

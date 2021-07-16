@@ -59,12 +59,12 @@ export default {
   display: inline-block;
   width: 0;
   height: 0;
-  margin-left: 0.315rem;
+  margin-left: 0.35rem;
   vertical-align: middle;
 
-  border-left: 4px solid transparent;
-  border-right: 4px solid transparent;
-  border-top: 6px solid #10162f;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 7px solid #10162f;
   transition: all 0.4s ease-in-out;
 }
 .nav-button.-active .triangle {
